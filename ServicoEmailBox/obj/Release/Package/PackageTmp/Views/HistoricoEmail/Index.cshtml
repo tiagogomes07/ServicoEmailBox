@@ -1,0 +1,118 @@
+﻿@model IEnumerable<ServicoEmailBox.Models.RegistroEmailModel>
+
+@{
+    ViewBag.Title = "Histórico emails";
+}
+
+<h3>Lista histórico de envio emails</h3>
+
+<p>
+    
+</p>
+
+<input id="btnDeletar" type="submit"   value="DeletarMarcados" class="btn btn-warning" style="margin-right:0px; margin-bottom:5px" />
+
+<table class="table">
+
+
+
+    <tr>
+        <th>
+            Deletar 
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.nomeRemetente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.emailRemetente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.destinatario)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.assunto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mensagem)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nomeCliente)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <input id="@item.Id" class="check" onclick="Array(this.id)" type="checkbox" />
+            <p class="numIdent" hidden="hidden">@item.Id</p>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nomeRemetente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.emailRemetente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.destinatario)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.assunto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mensagem)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nomeCliente)
+        </td>
+
+    </tr>
+}
+    
+</table>
+
+
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+<script type="text/javascript">    
+
+    var numero = [];
+
+    function Array(num) {
+
+        alert(num);
+        numero.push(num);
+    }
+
+    $(document).ready(function () {
+
+        alert("ola");
+
+        $(btnDeletar).click(function () {
+
+            alert("click");
+
+            var listaNumero = "";
+
+            //Quando o botão é clicado é feita uma checagem em cada campo do check da pagina
+            //o each irá varrer todos o campos da classe numCheck
+            //e deverá verificar se ele está com atributo checkded         
+        })
+
+        $("#check").change( function()
+        {
+            teste();
+        })
+
+    })
+
+
+</script>
+<style>
+    .teste{
+        color:red;
+    }
+
+</style>

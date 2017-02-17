@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="Content/bootstrap.min.css">
+	<script type="text/javascript" src="Scripts/jquery-3.1.1.min.js"></script>
+	<script type="text/javascript" src="Scripts/jquery.bootpag.min.js" ></script>
+
+</head>
+<body>
+
+	<p class="demo content4">Pagina apresentacao</p>
+
+
+	<div class="bs-docs-example">
+		<p class="demo demo4_top">
+
+		</p>
+		
+
+	</div>
+	
+	
+	
+    <script>
+	
+		$('btn').cli
+	
+	
+	
+	
+		$('.demo4_top,.demo4_bottom').bootpag({
+			total: 50,
+			page: 1,
+			maxVisible: 10,
+			leaps: true,
+			firstLastUse: true,
+			first: '←',
+			last: '→',
+			wrapClass: 'pagination',
+			activeClass: 'active',
+			disabledClass: 'disabled',
+			nextClass: 'next',
+			prevClass: 'prev',
+			lastClass: 'last',
+			firstClass: 'first'
+		}).on("page", function(event, num){
+			$(".content4").html("Page " + num); // or some ajax content loading...
+		}); 
+    </script>
+   
+
+    
+  
+
+</body>
+</html>

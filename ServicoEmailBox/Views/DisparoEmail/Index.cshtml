@@ -1,0 +1,74 @@
+﻿@{
+    ViewBag.Title = "DisparoEmail";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>DisparoEmail</title>
+</head>
+<body>
+    <div>
+        
+        @{ var lista = ViewData["ListaEmail"] as List<ServicoEmailBox.Models.ServicoEmailRemetenteModel>;}   
+        
+        @if (ViewData["ErroSolicitacao"] != null)
+        {
+            <p>ViewData["ErroSolicitacao"].ToString();</p>            
+        }
+            
+        <h3> Disparo de emails</h3>
+
+        <div style="margin-top:25px;  border-width:1px; border-style:solid; border-radius:5px; margin-left:10px; width:340px">
+
+            <form style="margin-left:10px; width:100%"; action="/DisparoEmail/Index" method="post">
+                <br />
+                <label style="padding-bottom:0px; margin-bottom:0px; margin-top:6px">De</label>
+                <br />
+                <select name="remetente">
+                    @foreach (var item in lista)
+                    {
+                        <option>@item.Email</option>
+                    }
+                </select>
+
+                <br />
+
+                <label style="padding-bottom:0px; margin-bottom:0px; margin-top:6px">Assunto</label>
+                <br />
+                <input style="width:100%" type="text" name="assunto" />
+
+                <br />
+
+                <label  style="padding-bottom:0px; margin-bottom:0px; margin-top:6px">Para</label>
+                <br />
+                <input style="width:100%" type="text" name="destinatario" />
+
+                <br />
+                <label  style="padding-bottom:0px; margin-bottom:0px; margin-top:6px">Mensagem</label>
+                <br />
+                <textarea style="width:100%; height:100px" name="mensagem"></textarea>
+
+                <br />
+                <label  style="padding-bottom:0px; margin-bottom:0px; margin-top:6px">Repetir</label>
+                <br />
+                <input style="width:12%" type="text" name="repetir" />
+                <br />
+
+                <br />
+
+                <div class="form-group">
+                    <div class="">
+                        <input type="submit" value="Enviar" class="btn btn-warning" />
+                    </div>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+</body>
+</html>

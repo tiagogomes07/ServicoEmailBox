@@ -1,0 +1,93 @@
+﻿@model IEnumerable<ServicoEmailBox.Models.ConfigSmtpModel>
+
+@{
+    ViewBag.Title = "Lista";
+}
+
+<h2>Servidores SMTP</h2>
+
+<!--
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Porta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SSL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Host)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DeliveryMethod)
+
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UseDefaultCredentials)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Porta)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SSL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Host)
+        </td>
+        <td>
+            
+            @if (item.DeliveryMethod == 0)
+            {
+                <span>Network</span>
+            }
+            else if (item.DeliveryMethod == 1)
+            {
+                <span>PickupDirectoryFromIis</span>
+            }
+            else if (item.DeliveryMethod == 2)
+            {
+                <span>SpecifiedPickupDirectory</span>
+            }
+        </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UseDefaultCredentials)
+            </td>
+
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.Id }) |
+            
+            @Html.ActionLink("Excluir", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+
+-->
+
+<p class="demo content4">Pagina apresentacao</p>
+
+
+
+
+
+
+
+<a href="/ConfigSmtp/Create">
+    <input type="button" class="btn btn-primary" value="Criar novo"/>
+</a>
+
+
+

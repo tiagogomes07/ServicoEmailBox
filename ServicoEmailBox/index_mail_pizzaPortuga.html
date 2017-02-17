@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="Content/bootstrap.min.css">
+    <link rel="stylesheet" href="Content/meuCSS.css">
+
+</head>
+<body background="fundo.jpg">
+
+    <div id="areaForm" class="col-md-6 col-xs-12 col-sm-12 container">
+
+        <form role="form" id="formContato" class="formContato2">
+            <div class="form-group">
+                <label>Nome*</label>
+                <input id="nomeRemetente" class="form-control" type="text" />
+                <span hidden="hidden" style="color:red; background-color:#E3E3E3">Nome é obrigatorio.</span>
+            </div>
+
+            <div class="form-group">
+                <label>Email*</label>
+                <input id="emailRemetente" class="form-control" type="text" />
+                <span hidden="hidden" style="color:red; background-color:#E3E3E3">Este campo é obrigatorio.</span>
+            </div>
+                
+            <div class="form-group">
+                <label>Assunto*</label>
+                <input id="assunto" class="form-control" type="text" />
+                <span hidden="hidden" style="color:red; background-color:#E3E3E3">Este campo é obrigatorio.</span>
+            </div>
+                              
+            <div class="form-group" hidden="hidden">
+                <label>Email Destinatario*</label>                
+                <input id="destinatario" class="form-control" type="text" />
+                <span hidden="hidden" style="color:red; background-color:#E3E3E3">Este campo é obrigatorio.</span>
+            </div>
+                
+            <div class="form-group">
+                <label>Mensagem*</label>                
+                <textarea id="mensagem" class="form-control" rows="5" cols="4"></textarea>
+                <span hidden="hidden" style="color:red; background-color:#E3E3E3">Este campo é obrigatorio..</span>                
+             </div>
+                <button id="but" class="btn btn-warning" type="button" > Enviar! </button>
+                
+        </form>
+
+    </div>
+
+    <script type="text/javascript" src="Scripts/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="Scripts/script_mail_pizzaPortuga.js" ></script>
+
+</body>
+</html>

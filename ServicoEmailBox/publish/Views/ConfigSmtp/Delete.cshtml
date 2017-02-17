@@ -1,0 +1,46 @@
+﻿@model ServicoEmailBox.Models.ConfigSmtpModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+
+
+<h3>Tem certeza que deseja deletar este servidor SMTP?</h3>
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+  
+        <dt>
+            <label style="padding-right:8px; margin-left:0px">Host</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Host)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div id="areaForm2" class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-warning" /> |
+            @Html.ActionLink("Back to List", "Lista")
+        </div>
+
+        <style> 
+        #areaForm2{
+            margin-left:118px;
+        }
+        </style>
+    }
+</div>

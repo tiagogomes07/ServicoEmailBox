@@ -1,0 +1,47 @@
+﻿@model IEnumerable<ServicoEmailBox.Models.ServicoEmailRemetenteModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h3>Lista remetentes</h3>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>Servidor SMTP</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nome)
+        </td>       
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(ModelItem => item.ID_SMTP.Nome)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.Id }) |
+            
+            
+            @Html.ActionLink("Excluir", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+
+<a href="/EmailRemetente/Create">
+    <input type="button" value="Criar novo" class="btn btn-primary" />
+</a>
+
+

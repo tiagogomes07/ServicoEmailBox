@@ -1,0 +1,59 @@
+﻿@model IEnumerable<ServicoEmailBox.Models.RegistroEmailModel>
+
+@{
+    ViewBag.Title = "Histórico emails";
+}
+
+@{  }
+
+<!--paginacao-->
+<script src="~/Scripts/myScript_HistoriroEmail.js" type="text/javascript"></script>
+<script src="~/Scripts/jquery.bootpag.min.js" type="text/javascript"></script>
+
+<h3>Lista histórico de envio emails</h3>
+
+<input id="btnDeletar" type="submit"   value="DeletarMarcados" class="btn btn-warning" style="margin-right:0px; margin-bottom:5px" />
+
+<!--Filtros-->
+<div>
+    <p> Existem <label id="qtdItens"></label> itens na base de dados.</p>
+    <br />
+    <p> Exibindo de: </p>
+    <input id="deInic" type="number" name="deInic">
+    até
+    <input id="deAte" type="number" name="deAte">
+    <input id="btnFiltrar" type="button" name="name" value="Buscar" />
+</div>
+
+<!--Menu-->
+<div class="bs-docs-example">
+    <p class="demo demo4_top"></p>
+</div>
+
+
+<!--Inserir aqui a lista carregada-->
+<div  class="demo content4 ">Pagina apresentacao
+    <div class="table-responsive">
+        <table class="table table-condensed table-hover table-striped" id="painelLista">
+            <tr class="warning">
+                <th>Marcar</th>
+                <th>ID</th>
+                <th>Assunto</th>
+                <th>Destinatario</th>
+                <th>Email remetente</th>
+                <th>Mensagem</th>
+                <th>Nome Cliente</th>
+                <th>Remetente</th>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+

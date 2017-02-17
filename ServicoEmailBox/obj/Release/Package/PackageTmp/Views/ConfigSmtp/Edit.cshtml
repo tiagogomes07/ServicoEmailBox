@@ -1,0 +1,141 @@
+﻿@model ServicoEmailBox.Models.ConfigSmtpModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+
+<h3>Editar servidor SMTP</h3>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Porta, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Porta, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Porta, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+            
+            <div class="form-group">
+                @Html.LabelFor(model => model.SSL, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    <select class="form-control" name="SSL">
+
+                        @if (Model.SSL == true)
+                        {
+                            <option>Sim</option>
+                            <option>Não</option>
+                        }
+                        @if (Model.SSL == false)
+                        {
+                            <option>Não</option>
+                            <option>Sim</option>
+                        }
+                        else
+                        {
+                            <option>Sim</option>
+                            <option>Não</option>
+
+                        }
+                    </select>
+                </div>
+            </div>
+
+        
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Host, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Host, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Host, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Delivery Method</label>
+            <div class="col-md-10">
+                <select class="form-control" name="Tipo Delivery">
+                    
+                    @if (Model.DeliveryMethod == 0)
+                    {
+                        <option>Network</option>
+                        <option>PickupDirectoryFromIis</option>
+                        <option>SpecifiedPickupDirectory</option>
+                    }
+                    else if (Model.DeliveryMethod == 1)
+                    {
+                        <option>SpecifiedPickupDirectory</option>
+                        <option>PickupDirectoryFromIis</option>
+                        <option>Network</option>
+
+                    }
+                    else if (Model.DeliveryMethod == 2)
+                    {
+                        <option>PickupDirectoryFromIis</option>
+                        <option>SpecifiedPickupDirectory</option>
+                        <option>Network</option>
+                        
+                                                
+                    }
+
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UseDefaultCredentials, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <select class="form-control" name="UseDefaultCredentials">
+                    @if (Model.UseDefaultCredentials == true)
+                    {
+                        <option>Sim</option>
+                            <option>Não</option>
+                    }
+                    @if (Model.SSL == false)
+                    {
+                        <option>Não</option>
+                            <option>Sim</option>
+                    }
+                </select>
+            </div>
+        </div>
+
+
+
+
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Lista")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

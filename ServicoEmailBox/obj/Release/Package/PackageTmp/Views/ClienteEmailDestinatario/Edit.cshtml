@@ -1,0 +1,101 @@
+﻿@model ServicoEmailBox.Models.ClienteEmailDestinatarioModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h3>Editar email destinatário</h3>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Email, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Celular, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Celular, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Celular, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+           <label class="control-label col-md-2">Email Remetente</label>
+            <div class="col-md-10">
+                           
+                <select class="form-control" name="nomeRemetente">
+                @{
+
+                    var lista = ViewData["ListaRemetente"] as List<ServicoEmailBox.Models.ServicoEmailRemetenteModel>;
+                    //GC.KeepAlive(ViewData["ListaRemetente"]);
+                    //GC.KeepAlive(lista);
+
+                    <option value="@Model.Remetente.Nome">@Model.Remetente.Nome</option>
+                    lista.Remove(Model.Remetente);
+
+                    foreach (var item in lista.ToList())
+                    {
+                        <option value="@item.Nome">@item.Nome</option>
+                    }
+
+
+                    @*//var ListaRemetente = ViewData["ListaRemetente"] as List<ServicoEmailBox.Models.ServicoEmailRemetenteModel>;
+                    var objetoRemetente = new ServicoEmailBox.DAL.Contexto();
+                    var ListaRemetente = objetoRemetente.ServicoEmailRemente.ToList();
+                    //GC.SuppressFinalize(ListaRemetente);
+
+                    <option value="@Model.Remetente.Nome">@Model.Remetente.Nome</option>
+
+                            //ListaRemetente.Remove(Model.Remetente);
+                            
+
+                            foreach (var item in ListaRemetente)
+                            {
+                            <option value="@item.Nome">@item.Nome</option>
+                        }*@
+                    
+                    }
+
+            </select>
+                
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
